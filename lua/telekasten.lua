@@ -2555,11 +2555,20 @@ local function FollowLink(opts)
                 opts.max_results,
                 opts.cwd
             )
+			opts.previewer = false
+			opts.winblend = 0
+			opts.border = true
+			opts.shorten_path = false
+			opts.heigth = 20
+			opts.width = 120
+			opts.prompt_title = ""
+			opts.preview_title = ""
 
+			new_opts = themes.get_dropdown(opts)
             -- builtin.live_grep({
-            local picker = pickers.new(opts, {
+            local picker = pickers.new(new_opts, {
                 cwd = cwd,
-                prompt_title = "Notes referencing `" .. title .. "`",
+                prompt_title = "---󰋓󰋓󰋓-󰋓󰋓󰋓-󰋓󰋓󰋓---",
                 default_text = search_pattern,
                 initial_mode = "insert",
                 -- link to specific file (a daily file): [[2021-02-22]]
@@ -2862,7 +2871,7 @@ local function FindAllTags(opts)
         opts.i = i
         pickers
             .new(opts, {
-                prompt_title = "Tags",
+                prompt_title = "---󰥱󰥱󰥱-󰥱󰥱󰥱-󰥱󰥱󰥱---",
                 finder = finders.new_table({
                     results = taglist,
                     entry_maker = function(entry)
