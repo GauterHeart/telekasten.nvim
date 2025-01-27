@@ -14,7 +14,7 @@ local atsign_re_pcre = "(^|\\s|'|\")((?!(@[a-fA-F0-9]{3})(\\W|$)|(@[a-fA-F0-9]{6
 local colon_re =
     "(^|\\s):[a-zA-ZÀ-ÿ\\p{Script=Han}]+[a-zA-ZÀ-ÿ0-9/\\-_\\p{Script=Han}]*:"
 local yaml_re =
-    "(^|\\s)tags:\\s*\\[\\s*([a-zA-ZÀ-ÿ\\p{Script=Han}]+[a-zA-ZÀ-ÿ0-9/\\-_\\p{Script=Han}]*(,\\s*)*)*\\s*]"
+    "(^|\\s)tag_array:\\s*\\[\\s*([a-zA-ZÀ-ÿ\\p{Script=Han}]+[a-zA-ZÀ-ÿ0-9/\\-_\\p{Script=Han}]*(,\\s*)*)*\\s*]"
 local function command_find_all_tags(opts)
     opts = opts or {}
     opts.cwd = opts.cwd or "."
@@ -110,7 +110,7 @@ local function split(line, sep, n)
 end
 
 local function yaml_to_tags(line, entry, ret)
-    local _, startpos = line:find("tags%s*:%s*%[")
+    local _, startpos = line:find("tag_array%s*:%s*%[")
     local global_end = line:find("%]")
 
     line = line:sub(startpos + 1, global_end)
