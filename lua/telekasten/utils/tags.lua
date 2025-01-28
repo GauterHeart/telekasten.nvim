@@ -12,7 +12,7 @@ local atsign_re =
 local atsign_re_pcre = "(^|\\s|'|\")((?!(@[a-fA-F0-9]{3})(\\W|$)|(@[a-fA-F0-9]{6})(\\W|$))"
     .. "@[a-zA-ZÀ-ÿ\\p{Script=Han}]+[a-zA-ZÀ-ÿ0-9/\\-_\\p{Script=Han}]*)"
 local colon_re =
-    "(^|\\s):[a-zA-ZÀ-ÿ\\p{Script=Han}]+[a-zA-ZÀ-ÿ0-9/\\-_\\p{Script=Han}]*:"
+    "(^|\\s)::[a-zA-ZÀ-ÿ\\p{Script=Han}]+[a-zA-ZÀ-ÿ0-9/\\-_\\p{Script=Han}]*::"
 local yaml_re =
     "(^|\\s)tag_array:\\s*\\[\\s*([a-zA-ZÀ-ÿ\\p{Script=Han}]+[a-zA-ZÀ-ÿ0-9/\\-_\\p{Script=Han}]*(,\\s*)*)*\\s*]"
 local function command_find_all_tags(opts)
